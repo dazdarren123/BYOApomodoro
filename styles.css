@@ -6,7 +6,7 @@ body {
     min-height: 100vh;
     margin: 0;
     background-color: #000;
-    color: blue;
+    color: #ff69b4;
     position: relative;
     overflow: hidden;
 }
@@ -20,7 +20,7 @@ body::before {
     width: 100%;
     height: 100%;
     background: linear-gradient(0deg, 
-        rgba(0, 255, 0, 0.1) 25%, 
+        rgba(255, 105, 180, 0.1) 25%, 
         rgba(0, 0, 0, 0.2) 50%);
     animation: matrix-rain 20s linear infinite;
     pointer-events: none;
@@ -31,16 +31,6 @@ body::before {
     100% { background-position: 0 1000px; }
 }
 
-.container {
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.8);
-    padding: 3rem;
-    border-radius: 4px;
-    border: 1px solid #00ff00;
-    box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
-    min-width: 320px;
-    backdrop-filter: blur(5px);
-}
 
 h1 {
     font-weight: 500;
@@ -48,8 +38,8 @@ h1 {
     margin-bottom: 2rem;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: #00ff00;
-    text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+    color: #ff69b4;
+    text-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
     animation: flicker 5s infinite;
 }
 
@@ -59,13 +49,13 @@ h1 {
     font-weight: 300;
     font-variant-numeric: tabular-nums;
     letter-spacing: -2px;
-    text-shadow: 0 0 20px rgba(0, 255, 0, 0.8);
+    text-shadow: 0 0 20px rgba(255, 105, 180, 0.8);
     font-family: 'Courier New', monospace;
 }
 
 #milliseconds {
     font-size: 2.5rem;
-    color: rgba(0, 255, 0, 0.6);
+    color: rgba(255, 105, 180, 0.6);
     font-weight: 300;
 }
 
@@ -81,9 +71,9 @@ h1 {
     font-size: 0.9rem;
     padding: 0.75rem 1.5rem;
     cursor: pointer;
-    border: 1px solid #00ff00;
+    border: 1px solid #ff69b4;
     background-color: transparent;
-    color: #00ff00;
+    color: #ff69b4;
     transition: all 0.2s ease;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -94,8 +84,8 @@ h1 {
 }
 
 .controls button:hover, .mode button:hover {
-    background-color: rgba(0, 255, 0, 0.1);
-    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+    background-color: rgba(255, 105, 180, 0.1);
+    box-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
 }
 
 .controls button::before, .mode button::before {
@@ -105,7 +95,7 @@ h1 {
     left: -10px;
     width: 0;
     height: 0;
-    background-color: rgba(0, 255, 0, 0.1);
+    background-color: rgba(255, 105, 180, 0.1);
     transform: rotate(45deg);
     transition: all 0.3s ease;
 }
@@ -116,16 +106,16 @@ h1 {
 }
 
 #start.active {
-    background-color: rgba(0, 255, 0, 0.2);
+    background-color: rgba(255, 105, 180, 0.2);
     animation: pulse 2s infinite;
 }
 
 #pause.active {
-    background-color: rgba(255, 0, 0, 0.2);
+    background-color: rgba(255, 20, 147, 0.2);
 }
 
 #reset.active {
-    background-color: rgba(0, 255, 0, 0.2);
+    background-color: rgba(255, 105, 180, 0.2);
 }
 
 .mode button {
@@ -133,20 +123,20 @@ h1 {
 }
 
 #work.active, #break.active {
-    background-color: rgba(0, 255, 0, 0.2);
-    box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+    background-color: rgba(255, 105, 180, 0.2);
+    box-shadow: 0 0 15px rgba(255, 105, 180, 0.3);
 }
 
 .mode {
     padding-top: 1rem;
-    border-top: 1px solid rgba(0, 255, 0, 0.3);
+    border-top: 1px solid rgba(255, 105, 180, 0.3);
     margin-top: 1.5rem;
 }
 
 @keyframes pulse {
-    0% { box-shadow: 0 0 5px rgba(0, 255, 0, 0.5); }
-    50% { box-shadow: 0 0 20px rgba(0, 255, 0, 0.8); }
-    100% { box-shadow: 0 0 5px rgba(0, 255, 0, 0.5); }
+    0% { box-shadow: 0 0 5px rgba(255, 105, 180, 0.5); }
+    50% { box-shadow: 0 0 20px rgba(255, 105, 180, 0.8); }
+    100% { box-shadow: 0 0 5px rgba(255, 105, 180, 0.5); }
 }
 
 @keyframes flicker {
