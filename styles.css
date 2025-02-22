@@ -55,7 +55,11 @@ h1 {
 
 #milliseconds {
     font-size: 2.5rem;
+<<<<<<< HEAD
     color: rgba(255, 105, 180, 0.6);
+=======
+    color: blue(0, 255, 0, 0.6);
+>>>>>>> 9412ddf1b32999420e4fa1b9bdde98863cf060e7
     font-weight: 300;
 }
 
