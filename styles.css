@@ -6,7 +6,7 @@ body {
     min-height: 100vh;
     margin: 0;
     background-color: #000;
-    color: #00ff00;
+    color: blue;
     position: relative;
     overflow: hidden;
 }
