@@ -168,4 +168,41 @@ h1 {
         transparent 2px
     );
     pointer-events: none;
+}
+
+/* Add bouncing logo styles */
+.bouncing-logo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    pointer-events: none; /* Makes logo click-through */
+}
+
+.bouncing-logo span {
+    font-size: 2rem;
+    color: #ff0000;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+    display: block;
+    position: relative;
+    animation: bounce-shadow 3s infinite;
+}
+
+/* Add to existing container styles */
+.container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Add bounce animation keyframes */
+@keyframes bounce-shadow {
+    0% {
+        text-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+    }
+    50% {
+        text-shadow: 0 0 20px rgba(255, 0, 0, 1);
+    }
+    100% {
+        text-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+    }
 } 

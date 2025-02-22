@@ -12,6 +12,18 @@ const resetButton = document.getElementById('reset');
 const workButton = document.getElementById('work');
 const breakButton = document.getElementById('break');
 
+// Add new audio constants
+const clickSound = document.getElementById('clickSound');
+const startSound = document.getElementById('startSound');
+const pauseSound = document.getElementById('pauseSound');
+
+// Bouncing logo animation
+const logo = document.querySelector('.bouncing-logo');
+let x = 0;
+let y = 0;
+let xSpeed = 2;
+let ySpeed = 2;
+
 function updateDisplay() {
     const minutes = Math.floor(timeLeft / 60);
     const seconds = timeLeft % 60;
@@ -27,8 +39,15 @@ function updateDisplay() {
     document.title = `${timeString} - ${isWorkMode ? 'Work' : 'Break'} Timer`;
 }
 
+// Function to play sound
+function playSound(sound) {
+    sound.currentTime = 0; // Reset sound to start
+    sound.play();
+}
+
 function startTimer() {
     if (timerId === null) {
+        playSound(startSound);
         startButton.classList.add('active');
         pauseButton.classList.remove('active');
         
@@ -63,6 +82,7 @@ function startTimer() {
 }
 
 function pauseTimer() {
+    playSound(pauseSound);
     if (timerId) {
         clearInterval(timerId.main);
         clearInterval(timerId.ms);
@@ -74,6 +94,7 @@ function pauseTimer() {
 }
 
 function resetTimer() {
+    playSound(clickSound);
     if (timerId) {
         clearInterval(timerId.main);
         clearInterval(timerId.ms);
@@ -89,6 +110,7 @@ function resetTimer() {
 }
 
 function switchMode(mode) {
+    playSound(clickSound);
     isWorkMode = mode === 'work';
     workButton.classList.toggle('active', isWorkMode);
     breakButton.classList.toggle('active', !isWorkMode);
@@ -103,5 +125,50 @@ updateDisplay();
 startButton.addEventListener('click', startTimer);
 pauseButton.addEventListener('click', pauseTimer);
 resetButton.addEventListener('click', resetTimer);
-workButton.addEventListener('click', () => switchMode('work'));
-breakButton.addEventListener('click', () => switchMode('break')); 
+workButton.addEventListener('click', () => {
+    playSound(clickSound);
+    switchMode('work');
+});
+breakButton.addEventListener('click', () => {
+    playSound(clickSound);
+    switchMode('break');
+});
+
+// Bouncing logo animation
+function animateLogo() {
+    const maxX = window.innerWidth - logo.offsetWidth;
+    const maxY = window.innerHeight - logo.offsetHeight;
+
+    // Update position
+    x += xSpeed;
+    y += ySpeed;
+
+    // Bounce off edges
+    if (x >= maxX || x <= 0) {
+        xSpeed = -xSpeed;
+        playSound(clickSound);
+    }
+    if (y >= maxY || y <= 0) {
+        ySpeed = -ySpeed;
+        playSound(clickSound);
+    }
+
+    // Apply new position
+    logo.style.transform = `translate(${x}px, ${y}px)`;
+
+    // Continue animation
+    requestAnimationFrame(animateLogo);
+}
+
+// Start animation
+animateLogo();
+
+// Update speeds on window resize
+window.addEventListener('resize', () => {
+    const maxX = window.innerWidth - logo.offsetWidth;
+    const maxY = window.innerHeight - logo.offsetHeight;
+    
+    // Keep logo in bounds after resize
+    x = Math.min(x, maxX);
+    y = Math.min(y, maxY);
+}); 
